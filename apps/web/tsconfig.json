@@ -1,5 +1,5 @@
 {
-  "extends": "@itays-turbo-design-system/configs/tsconfig/nextjs.json",
+  "extends": "../../configs/tsconfig/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
