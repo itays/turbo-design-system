@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   experimental: {
-    transpilePackages: [],
+    transpilePackages: ["@components/button"],
     appDir: true,
   },
 };

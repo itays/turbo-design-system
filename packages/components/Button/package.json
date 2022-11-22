@@ -1,0 +1,58 @@
+{
+  "name": "@components/button",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": "./dist",
+    "./styles.css": "./dist/styles.css",
+    "./index.css": "./dist/index.css"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup && pnpm build:styles",
+    "build:styles": "tailwindcss -o ./dist/styles.css --minify",
+    "dev": "concurrently \"tsup --watch\" \"tailwindcss -o ./dist/styles.css --watch\"",
+    "lint": "TIMING=1 eslint \"src/**/*.ts*\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.12",
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
+    "concurrently": "^7.5.0",
+    "tailwindcss": "^3.2.1",
+    "tsup": "^6.4.0",
+    "typescript": "^4.5.3"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "clean": true,
+    "sourcemap": "inline",
+    "treeshake": true,
+    "format": [
+      "esm",
+      "cjs"
+    ],
+    "external": "react",
+    "dts": true,
+    "loader": {
+      ".css": "css"
+    },
+    "minify": true
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
